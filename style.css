@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 4px;
+    min-height: 90vh;
+
+    background-color: #1f2937;
+}
+
+.gridRow {
+    display: flex;
+    gap: 4px;
+    flex: 1;
+}
+
+.element {
+    flex: 1;
+    background-color: white;
+}
