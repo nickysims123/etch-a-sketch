@@ -2,6 +2,7 @@
 function createGrid(num) {
     // creates a reference to the overall container our grid will be in
     const container = document.querySelector(".container");
+    container.removechild
 
     // for loop to construct each row, having num rows
     for (let i = 0; i < num; i++) {
@@ -14,6 +15,7 @@ function createGrid(num) {
             var element = document.createElement('div');
             element.setAttribute('class', 'element');
 
+            // calls a helper function to assign eventListeners
             setEvent(element);
             
             row.appendChild(element);
@@ -21,14 +23,43 @@ function createGrid(num) {
     }
 }
 
+// function used to detach all previous nodes once a new size appears
+function detachNodes(size) {
+    for (let i = 0; i < size; i++) {
+        var row = document.querySelector(".gridRow");
+        for (let j = 0; j < size; j++) {
+            var element = document.querySelector(".element");
+            row.removeChild(element);
+        }
+    }
+}
+
+// helper function used to assign eventListeners to each box
+// also used to set the eventListener for the change size button
 function setEvent(element) {
     element.addEventListener("mouseover", () => {
         element.style.backgroundColor = "red";
     });
 }
 
-function startPlay(num) {
-    createGrid(num);
+// function to add the change size button's evenListener and function
+function createSizeButton() {
+    var btn = document.querySelector(".change-size");
+    btn.addEventListener('click', () => {
+        var newSize = parseInt(prompt("What x by x size grid would you like?"));
+        if (Number.isInteger(newSize) && newSize <= 100) {
+            detachNodes(currentSize);
+            currentSize = newSize;
+            createGrid(currentSize);
+        }
+    })
 }
 
-startPlay(16);
+function startPlay(num) {
+    createGrid(num);
+    createSizeButton();
+}
+
+let currentSize = 16;
+
+startPlay(currentSize);

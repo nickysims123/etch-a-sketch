@@ -3,6 +3,12 @@ body {
     flex-direction: column;
 }
 
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 8px;
+}
 
 .container {
     display: flex;
