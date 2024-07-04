@@ -25,12 +25,15 @@ function createGrid(num) {
 
 // function used to detach all previous nodes once a new size appears
 function detachNodes(size) {
+    var container = document.querySelector(".container");
+
     for (let i = 0; i < size; i++) {
         var row = document.querySelector(".gridRow");
         for (let j = 0; j < size; j++) {
             var element = document.querySelector(".element");
             row.removeChild(element);
         }
+        container.removeChild(row);
     }
 }
 
@@ -50,7 +53,7 @@ function createSizeButton() {
         if (Number.isInteger(newSize) && newSize <= 100) {
             detachNodes(currentSize);
             currentSize = newSize;
-            createGrid(currentSize);
+            createGrid(currentSize);    
         }
     })
 }
