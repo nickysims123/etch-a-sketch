@@ -2,7 +2,10 @@
 function createGrid(num) {
     // creates a reference to the overall container our grid will be in
     const container = document.querySelector(".container");
-    container.removechild
+
+    const sizeDisplay = document.querySelector(".current-size");
+    const sizeText = "" + num + " by " + num;
+    sizeDisplay.textContent = sizeText;
 
     // for loop to construct each row, having num rows
     for (let i = 0; i < num; i++) {
