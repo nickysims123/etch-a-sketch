@@ -12,10 +12,23 @@ function createGrid(num) {
         // for loop to construct each row's elements, having num elements
         for (let j = 0; j < num; j++) {
             var element = document.createElement('div');
-            element.setAttribute('class', 'element')
+            element.setAttribute('class', 'element');
+
+            setEvent(element);
+            
             row.appendChild(element);
         }
     }
 }
 
-createGrid(16);
+function setEvent(element) {
+    element.addEventListener("mouseover", () => {
+        element.style.backgroundColor = "red";
+    });
+}
+
+function startPlay(num) {
+    createGrid(num);
+}
+
+startPlay(16);
