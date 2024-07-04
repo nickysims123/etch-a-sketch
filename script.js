@@ -58,6 +58,9 @@ function createSizeButton() {
             currentSize = newSize;
             createGrid(currentSize);    
         }
+        else {
+            alert("Please only input positive integers to 100")
+        }
     })
 }
 
