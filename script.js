@@ -17,7 +17,7 @@ function createGrid(num) {
         for (let j = 0; j < num; j++) {
             var element = document.createElement('div');
             element.setAttribute('class', 'element');
-
+            element.style.opacity = 1;
             // calls a helper function to assign eventListeners
             setEvent(element);
             
@@ -41,9 +41,17 @@ function detachNodes(size) {
 }
 
 // helper function used to assign eventListeners to each box
-// also used to set the eventListener for the change size button
 function setEvent(element) {
     element.addEventListener("mouseover", () => {
+        // values used to randomize color
+        /*
+        let rValue = Math.random() * 255;
+        let bValue = Math.random() * 255;
+        let gValue = Math.random() * 255;
+        element.style.backgroundColor = 'rgb('+rValue+','+bValue+','+gValue+')';
+        */
+
+        element.style.opacity = element.style.opacity - 0.1;
         element.style.backgroundColor = "red";
     });
 }
